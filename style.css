@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-image: url('img/Dope-Desktop-Wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+body::before {
+    content: '';
+    background-color: hsla(0, 0%, 0%, 0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+h1 {
+    color: #ffffff;
+    font-weight: 600;
+    -webkit-text-stroke-color: #ee8a08;
+    -webkit-text-stroke-width: 2px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    background-color: #000000a8;
+    width: 500px;
+    margin: auto;
+    padding: 5px;
+}
+
+.box-in-btn {
+    display: flex;
+    flex-wrap: wrap;
+    width: 370px;
+}
+
+#input {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    margin: 15px auto;
+    padding: 4px;
+    border-radius: 10px;
+    border: 1px solid #ffb547;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#btn-add {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    padding: 4px;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(255, 170, 43);
+    border: none;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#btn-add:active {
+    opacity: .6;
+}
+
+.to-do-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: aliceblue;
+    width: 450px;
+    padding: 4px;
+    cursor: pointer;
+    transition: all .5;
+}
+
+.to-do-list li:hover{
+    background-color: deepskyblue;
+}
+
+.to-do-list li {
+    display: flex;
+    list-style: decimal;
+    padding: 5px 5px 1px;
+    font-size: 18px;
+    align-items: center;  
+    box-shadow: 0px 2px 0px #000;
+    width: 450px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-transform: capitalize;
+}
+
+.conclude-delete {
+    display: flex;
+    justify-content: end;
+    padding: 0px 10px;
+}
+
+#conclude {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+    transition: color linear .2s;
+    margin: auto 4px;
+    transition: all .3s;
+    opacity: 0;
+}
+
+#delete {
+    opacity: 0;
+    transition: all .3s;
+}
+
+#conclude:hover {
+    color: green;
+}
+
+.list:hover #conclude,
+.list:hover #delete {
+    opacity: 1;
+}
+
+/* Conclude */
+.done {
+    background-color: rgb(3, 99, 0);
+    text-decoration: line-through;
+}

@@ -5,14 +5,18 @@ const container_ul = document.querySelector(".to-do-list");
 let list = [];
 
 function addInList() {
-  list.push({
-    task: input.value,
-    conclude: false,
-  });
+   if (input) {
+        list.push({
+            task: input.value,
+            conclude: false,
+        });
 
-  input.value = "";
+        input.value = "";
 
-  showTasks();
+        showTasks();
+    } else {
+        console.error("Elemento com id 'input' não encontrado.");
+    }
 }
 
 function showTasks() {

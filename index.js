@@ -6,11 +6,11 @@ let list = [];
 
 function addInList() {
   list.push({
-    task: put.value,
+    task: input.value,
     conclude: false,
   });
 
-  put.value = "";
+  input.value = "";
 
   showTasks();
 }
@@ -67,15 +67,17 @@ function loadTasks() {
   showTasks();
 }
 
-loadTasks();
-
 
 document.addEventListener("DOMContentLoaded", function() {
-    const btn = document.querySelector("#btn-add");
+  const input = document.getElementById("input");
+  const btn = document.getElementById("btn-add");
+  const container_ul = document.querySelector(".to-do-list");
 
-    if (btn) {
-        btn.addEventListener("click", addInList);
-    } else {
-        console.error("Botão com id 'btn-add' não encontrado.");
-    }
+  if (btn) {
+    btn.addEventListener("click", addInList);
+  } else {
+    console.error("Botão com id 'btn-add' não encontrado.");
+  }
+
+  loadTasks();
 });

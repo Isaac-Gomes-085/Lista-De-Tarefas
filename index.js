@@ -70,8 +70,12 @@ function loadTasks() {
 loadTasks();
 
 
-if (btn) {
-    btn.addEventListener("click", addInList);
-} else {
-    console.error("Botão com id 'btn-add' não encontrado.");
-}
+document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.querySelector("#btn-add");
+
+    if (btn) {
+        btn.addEventListener("click", addInList);
+    } else {
+        console.error("Botão com id 'btn-add' não encontrado.");
+    }
+});

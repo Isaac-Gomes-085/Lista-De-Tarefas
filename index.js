@@ -6,11 +6,11 @@ let list = [];
 
 function addInList() {
   list.push({
-    task: input.value,
+    task: put.value,
     conclude: false,
   });
 
-  input.value = "";
+  put.value = "";
 
   showTasks();
 }

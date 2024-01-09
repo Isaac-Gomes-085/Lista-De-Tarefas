@@ -1,28 +1,27 @@
 const input = document.querySelector("#input");
 const btn = document.querySelector("#btn-add");
-const container_ul = document.querySelector('.to-do-list')
-
+const container_ul = document.querySelector(".to-do-list");
 
 let list = [];
 
 function addInList() {
   list.push({
     task: input.value,
-    conclude: false
+    conclude: false,
   });
 
-  input.value = ''
+  input.value = "";
 
   showTasks();
 }
 
 function showTasks() {
-  let li = ''
+  let li = "";
   // tasks = tarefas
   list.forEach((item, index, all_Tasks) => {
     console.log(item, index, all_Tasks);
-    li += `    
-    <li class="list ${item.conclude ? 'done' : ''}">${item.task}
+    li += `  
+    <li class="list ${item.conclude && "done"}">${item.task}
       <div class="conclude-delete">
         <i class="bi bi-check-circle-fill" id="conclude" onclick="concludeTask(${index})"></i>
           <lord-icon
@@ -37,34 +36,37 @@ function showTasks() {
         </div>
       </li>`;
 
-      container_ul.innerHTML = li
+    container_ul.innerHTML = li;
 
-      localStorage.setItem('lista', JSON.stringify(list))
-
-    })
+    localStorage.setItem("lista", JSON.stringify(list));
+  });
 }
 
 function concludeTask(index) {
-  list[index].conclude = !list[index].conclude
+  list[index].conclude = !list[index].conclude;
 
-  showTasks()
+  showTasks();
 }
 
 function deleteItem(index) {
-  list.splice(index, 1)
+  list.splice(index, 1);
 
-  showTasks()
+  showTasks();
 }
 
-function loadTasks () {
-  const tasksLocalStorage = localStorage.getItem('lista')
+function loadTasks() {
+  const tasksLocalStorage = localStorage.getItem("lista");
 
-  list = JSON.parse(tasksLocalStorage)
+  list = tasksLocalStorage ? JSON.parse(tasksLocalStorage) : [];
 
-  showTasks()
+  
+  if (!Array.isArray(list)) {
+    list = [];
+  }
+  
+  showTasks();
 }
 
-
-loadTasks()
+loadTasks();
 
 btn.addEventListener("click", addInList);

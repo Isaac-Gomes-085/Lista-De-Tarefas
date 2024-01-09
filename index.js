@@ -22,7 +22,7 @@ function showTasks() {
   list.forEach((item, index, all_Tasks) => {
     console.log(item, index, all_Tasks);
     li += `    
-    <li class="list ${item.conclude && 'done'}">${item.task}
+    <li class="list ${item.conclude ? 'done' : ''}">${item.task}
       <div class="conclude-delete">
         <i class="bi bi-check-circle-fill" id="conclude" onclick="concludeTask(${index})"></i>
           <lord-icon

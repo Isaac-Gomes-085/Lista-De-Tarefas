@@ -5,18 +5,14 @@ const container_ul = document.querySelector(".to-do-list");
 let list = [];
 
 function addInList() {
-   if (input) {
-        list.push({
-            task: input.value,
-            conclude: false,
-        });
+  list.push({
+    task: input.value,
+    conclude: false,
+  });
 
-        input.value = "";
+  input.value = "";
 
-        showTasks();
-    } else {
-        console.error("Elemento com id 'input' não encontrado.");
-    }
+  showTasks();
 }
 
 function showTasks() {
@@ -28,21 +24,22 @@ function showTasks() {
     <li class="list ${item.conclude && "done"}">${item.task}
       <div class="conclude-delete">
         <i class="bi bi-check-circle-fill" id="conclude" onclick="concludeTask(${index})"></i>
-        <lord-icon
-          id="delete"
-          src="https://cdn.lordicon.com/jmkrnisz.json"
-          trigger="morph"
-          colors="primary:green"
-          state="morph-fill"
-          style="width: 30px; height: 30px; cursor: pointer"
-          onclick="deleteItem(${index})"
-        ></lord-icon>
-      </div>
-    </li>`;
-  });
+          <lord-icon
+                id="delete"
+                src="https://cdn.lordicon.com/jmkrnisz.json"
+                trigger="morph"
+                colors="primary:green"
+                state="morph-fill"
+                style="width: 30px; height: 30px; cursor: pointer"
+              onclick="deleteItem(${index})">
+          </lord-icon>
+        </div>
+      </li>`;
 
-  container_ul.innerHTML = li;
-  localStorage.setItem("lista", JSON.stringify(list));
+    container_ul.innerHTML = li;
+
+    localStorage.setItem("lista", JSON.stringify(list));
+  });
 }
 
 function concludeTask(index) {
@@ -62,14 +59,20 @@ function loadTasks() {
 
   list = tasksLocalStorage ? JSON.parse(tasksLocalStorage) : [];
 
+  
   if (!Array.isArray(list)) {
     list = [];
   }
-
+  
   showTasks();
 }
 
+
 document.addEventListener("DOMContentLoaded", function() {
+  const input = document.getElementById("input");
+  const btn = document.getElementById("btn-add");
+  const container_ul = document.querySelector(".to-do-list");
+
   if (btn) {
     btn.addEventListener("click", addInList);
   } else {

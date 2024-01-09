@@ -69,4 +69,9 @@ function loadTasks() {
 
 loadTasks();
 
-btn.addEventListener("click", addInList);
+
+if (btn) {
+    btn.addEventListener("click", addInList);
+} else {
+    console.error("Botão com id 'btn-add' não encontrado.");
+}

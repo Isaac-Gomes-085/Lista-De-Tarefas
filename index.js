@@ -1,5 +1,5 @@
 const input = document.querySelector("#input");
-const btn = document.querySelector("#btn-add");
+const btn = document.querySelector("#btn_add");
 const container_ul = document.querySelector(".to-do-list");
 
 let list = [];

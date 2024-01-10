@@ -68,9 +68,7 @@ function loadTasks() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const input = document.getElementById("input");
-  const btn = document.getElementById("btn-add");
+document.addEventListener("DOMContentLoaded", function() { 
   const container_ul = document.querySelector(".to-do-list");
 
   if (btn) {

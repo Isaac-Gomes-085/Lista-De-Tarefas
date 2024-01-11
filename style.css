@@ -51,7 +51,7 @@ h1 {
     width: 370px;
 }
 
-#input {
+.text {
     display: flex;
     flex-wrap: wrap;
     width: 250px;

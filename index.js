@@ -1,3 +1,4 @@
+const input = document.querySelector(".text")
 const btn = document.getElementById("btn-add");
 const container_ul = document.querySelector(".to-do-list");
 

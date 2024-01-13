@@ -1,5 +1,6 @@
-const input = document.querySelector("#input");
+const input = document.querySelector(".text");
 const btn = document.querySelector("#btn-add");
+const btnIcon = document.querySelector("#btn-icon");
 const container_ul = document.querySelector('.to-do-list')
 
 
@@ -10,8 +11,6 @@ function addInList() {
     task: input.value,
     conclude: false
   });
-
-  input.value = ''
 
   showTasks();
 }
@@ -51,7 +50,6 @@ function concludeTask(index) {
 
 function deleteItem(index) {
   list.splice(index, 1)
-
   showTasks()
 }
 
@@ -65,5 +63,5 @@ function loadTasks () {
 
 
 loadTasks()
-
+btnIcon.addEventListener("click", addInList);
 btn.addEventListener("click", addInList);

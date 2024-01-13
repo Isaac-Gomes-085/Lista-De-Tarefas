@@ -9,14 +9,12 @@ function addInList() {
     task: input.value,
     conclude: false,
   });
-
-  input.value = "";
-
+  
   showTasks();
 }
 
 function showTasks() {
-  let li = null;
+  let li = "";
   // tasks = tarefas
   list.forEach((item, index, all_Tasks) => {
     console.log(item, index, all_Tasks);

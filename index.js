@@ -16,7 +16,7 @@ function addInList() {
 }
 
 function showTasks() {
-  let li = "";
+  let li = null;
   // tasks = tarefas
   list.forEach((item, index, all_Tasks) => {
     console.log(item, index, all_Tasks);

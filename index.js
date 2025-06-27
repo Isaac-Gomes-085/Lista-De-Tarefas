@@ -7,19 +7,23 @@ const container_ul = document.querySelector('.to-do-list')
 let list = [];
 
 function addInList() {
+  const taskValue = input.value.trim();
+
+  if(!taskValue) return;
+
   list.push({
-    task: input.value,
+    task: taskValue,
     conclude: false
   });
-
+  input.value = "";
   showTasks();
 }
 
 function showTasks() {
   let li = ''
   // tasks = tarefas
-  list.forEach((item, index, all_Tasks) => {
-    console.log(item, index, all_Tasks);
+  list.forEach((item, index) => {
+    console.log(item, index);
     li += `    
     <li class="list ${item.conclude && 'done'}">${item.task}
     <div class="conclude-delete">
@@ -55,13 +59,14 @@ function deleteItem(index) {
 
 function loadTasks () {
   const tasksLocalStorage = localStorage.getItem('lista')
-
-  list = JSON.parse(tasksLocalStorage)
+  if (tasksLocalStorage) return list = JSON.parse(tasksLocalStorage);
+  else list = [];
 
   showTasks()
 }
 
 
 loadTasks()
+showTasks()
 btnIcon.addEventListener("click", addInList);
 btn.addEventListener("click", addInList);
